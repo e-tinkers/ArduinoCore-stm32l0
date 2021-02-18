@@ -5,6 +5,74 @@ menu.opt=Optimize
 
 ##############################################################
 
+# Tech Studio Murata LoRa Board
+# ---------------------------------------
+TechStudio-LoRa.name=TechStudio-LoRa
+TechStudio-LoRa.vid.0=0x7da8
+TechStudio-LoRa.pid.0=0x89a0
+
+TechStudio-LoRa.upload.tool=stm32l0_dfu
+TechStudio-LoRa.upload.protocol=dfu
+TechStudio-LoRa.upload.maximum_size=196608
+TechStudio-LoRa.upload.maximum_data_size=20480
+TechStudio-LoRa.upload.use_1200bps_touch=true
+TechStudio-LoRa.upload.wait_for_upload_port=false
+TechStudio-LoRa.upload.native_usb=false
+
+TechStudio-LoRa.build.mcu=cortex-m0plus
+TechStudio-LoRa.build.f_cpu=32000000L
+TechStudio-LoRa.build.board=STM32L0_TechStudio
+TechStudio-LoRa.build.arch=stm32l0
+TechStudio-LoRa.build.core=arduino
+TechStudio-LoRa.build.vid=0x7da8
+TechStudio-LoRa.build.pid=0x89a0
+TechStudio-LoRa.build.did=0xffff
+TechStudio-LoRa.build.usb_manufacturer="Tech Studio Design LLP"
+TechStudio-LoRa.build.usb_product="TechStudio Murata Lora Board"
+TechStudio-LoRa.build.extra_flags=-DSTM32L082xx -march=armv6-m -mthumb -mabi=aapcs -mfloat-abi=soft -fsingle-precision-constant {build.usb_flags} {build.dosfs_flags}
+TechStudio-LoRa.build.ldscript=linker_scripts/STM32L082CZ_FLASH.ld
+TechStudio-LoRa.build.openocdscript=openocd_scripts/TechStudio-LoRa.cfg
+TechStudio-LoRa.build.variant=TechStudio-LoRa
+TechStudio-LoRa.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l082xx -larm_cortexM0l_math
+TechStudio-LoRa.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
+
+TechStudio-LoRa.menu.usb.cdc=Serial
+TechStudio-LoRa.menu.usb.cdc.build.usb_type=USB_TYPE_CDC
+TechStudio-LoRa.menu.usb.cdc_msc=Serial + Mass Storage
+TechStudio-LoRa.menu.usb.cdc_msc.build.usb_type=USB_TYPE_CDC_MSC
+TechStudio-LoRa.menu.usb.none=No USB
+TechStudio-LoRa.menu.usb.none.build.usb_type=USB_TYPE_NONE
+
+TechStudio-LoRa.menu.dosfs.none=None
+TechStudio-LoRa.menu.dosfs.none.build.dosfs_sdcard=0
+TechStudio-LoRa.menu.dosfs.none.build.dosfs_sflash=0
+TechStudio-LoRa.menu.dosfs.sdspi=SDCARD (SPI)
+TechStudio-LoRa.menu.dosfs.sdspi.build.dosfs_sdcard=1
+TechStudio-LoRa.menu.dosfs.sdspi.build.dosfs_sflash=0
+TechStudio-LoRa.menu.dosfs.sfspi=SFLASH (SPI)
+TechStudio-LoRa.menu.dosfs.sfspi.build.dosfs_sdcard=0
+TechStudio-LoRa.menu.dosfs.sfspi.build.dosfs_sflash=1
+
+TechStudio-LoRa.menu.speed.32=32 MHz
+TechStudio-LoRa.menu.speed.32.build.f_cpu=32000000L
+TechStudio-LoRa.menu.speed.16=16 MHz (No USB)
+TechStudio-LoRa.menu.speed.16.build.f_cpu=16000000L
+TechStudio-LoRa.menu.speed.4=4.2 MHz (No USB)
+TechStudio-LoRa.menu.speed.4.build.f_cpu=4200000L
+
+TechStudio-LoRa.menu.opt.os=Smallest Code
+TechStudio-LoRa.menu.opt.os.build.flags.optimize=-Os
+TechStudio-LoRa.menu.opt.os.build.flags.ldspecs=--specs=nano.specs
+TechStudio-LoRa.menu.opt.o1=Fast
+TechStudio-LoRa.menu.opt.o1.build.flags.optimize=-O1
+TechStudio-LoRa.menu.opt.o1.build.flags.ldspecs=
+TechStudio-LoRa.menu.opt.o2=Faster
+TechStudio-LoRa.menu.opt.o2.build.flags.optimize=-O2
+TechStudio-LoRa.menu.opt.o2.build.flags.ldspecs=
+TechStudio-LoRa.menu.opt.o3=Fastest
+TechStudio-LoRa.menu.opt.o3.build.flags.optimize=-O3
+TechStudio-LoRa.menu.opt.o3.build.flags.ldspecs=
+
 # Tlera Grasshopper
 # ---------------------------------------
 Grasshopper-L082CZ.name=Grasshopper-L082CZ
@@ -34,7 +102,7 @@ Grasshopper-L082CZ.build.ldscript=linker_scripts/STM32L082CZ_FLASH.ld
 Grasshopper-L082CZ.build.openocdscript=openocd_scripts/grasshopper-l082cz.cfg
 Grasshopper-L082CZ.build.variant=Grasshopper-L082CZ
 Grasshopper-L082CZ.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l082xx -larm_cortexM0l_math
-Grasshopper-L082CZ.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include" 
+Grasshopper-L082CZ.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
 
 Grasshopper-L082CZ.menu.usb.cdc=Serial
 Grasshopper-L082CZ.menu.usb.cdc.build.usb_type=USB_TYPE_CDC
@@ -103,7 +171,7 @@ Cricket-L082CZ.build.ldscript=linker_scripts/STM32L082CZ_FLASH.ld
 Cricket-L082CZ.build.openocdscript=openocd_scripts/cricket-l082cz.cfg
 Cricket-L082CZ.build.variant=Cricket-L082CZ
 Cricket-L082CZ.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l082xx -larm_cortexM0l_math
-Cricket-L082CZ.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include" 
+Cricket-L082CZ.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
 
 Cricket-L082CZ.menu.usb.cdc=Serial
 Cricket-L082CZ.menu.usb.cdc.build.usb_type=USB_TYPE_CDC
@@ -168,7 +236,7 @@ Cicada-L082CZ.build.ldscript=linker_scripts/STM32L082CZ_FLASH.ld
 Cicada-L082CZ.build.openocdscript=openocd_scripts/cicada-l082cz.cfg
 Cicada-L082CZ.build.variant=Cicada-L082CZ
 Cicada-L082CZ.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l082xx -larm_cortexM0l_math
-Cicada-L082CZ.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include" 
+Cicada-L082CZ.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
 
 Cicada-L082CZ.menu.usb.cdc=Serial
 Cicada-L082CZ.menu.usb.cdc.build.usb_type=USB_TYPE_CDC
@@ -234,7 +302,7 @@ Gnat-L082CZ.build.ldscript=linker_scripts/STM32L082CZ_FLASH.ld
 Gnat-L082CZ.build.openocdscript=openocd_scripts/gnat-l082cz.cfg
 Gnat-L082CZ.build.variant=Gnat-L082CZ
 Gnat-L082CZ.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l082xx -larm_cortexM0l_math
-Gnat-L082CZ.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include" 
+Gnat-L082CZ.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
 
 Gnat-L082CZ.menu.usb.cdc=Serial
 Gnat-L082CZ.menu.usb.cdc.build.usb_type=USB_TYPE_CDC
@@ -289,7 +357,7 @@ B-L072Z-LRWAN1.build.ldscript=linker_scripts/STM32L072CZ_FLASH.ld
 B-L072Z-LRWAN1.build.openocdscript=openocd_scripts/b-l072z-lrwan1.cfg
 B-L072Z-LRWAN1.build.variant=B-L072Z-LRWAN1
 B-L072Z-LRWAN1.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l072xx -larm_cortexM0l_math
-B-L072Z-LRWAN1.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include" 
+B-L072Z-LRWAN1.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
 
 B-L072Z-LRWAN1.menu.speed.32=32 MHz
 B-L072Z-LRWAN1.menu.speed.32.build.f_cpu=32000000L
@@ -339,7 +407,7 @@ I-NUCLEO-LRWAN1.build.ldscript=linker_scripts/STM32L052T8_FLASH.ld
 I-NUCLEO-LRWAN1.build.openocdscript=openocd_scripts/i-nucleo-lrwan1.cfg
 I-NUCLEO-LRWAN1.build.variant=I-NUCLEO-LRWAN1
 I-NUCLEO-LRWAN1.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l052xx -larm_cortexM0l_math
-I-NUCLEO-LRWAN1.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include" 
+I-NUCLEO-LRWAN1.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
 
 I-NUCLEO-LRWAN1.menu.speed.32=32 MHz
 I-NUCLEO-LRWAN1.menu.speed.32.build.f_cpu=32000000L
@@ -389,7 +457,7 @@ P-NUCLEO-LRWAN1.build.ldscript=linker_scripts/STM32L073RZ_FLASH.ld
 P-NUCLEO-LRWAN1.build.openocdscript=openocd_scripts/p-nucleo-lrwan1.cfg
 P-NUCLEO-LRWAN1.build.variant=P-NUCLEO-LRWAN1
 P-NUCLEO-LRWAN1.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l072xx -larm_cortexM0l_math
-P-NUCLEO-LRWAN1.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include" 
+P-NUCLEO-LRWAN1.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
 
 P-NUCLEO-LRWAN1.menu.speed.32=32 MHz
 P-NUCLEO-LRWAN1.menu.speed.32.build.f_cpu=32000000L
@@ -439,7 +507,7 @@ NUCLEO-L053R8.build.ldscript=linker_scripts/STM32L053R8_FLASH.ld
 NUCLEO-L053R8.build.openocdscript=openocd_scripts/nucleo-l053r8.cfg
 NUCLEO-L053R8.build.variant=NUCLEO-L053R8
 NUCLEO-L053R8.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l052xx -larm_cortexM0l_math
-NUCLEO-L053R8.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include" 
+NUCLEO-L053R8.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
 
 NUCLEO-L053R8.menu.speed.32=32 MHz
 NUCLEO-L053R8.menu.speed.32.build.f_cpu=32000000L
@@ -489,7 +557,7 @@ NUCLEO-L073RZ.build.ldscript=linker_scripts/STM32L073RZ_FLASH.ld
 NUCLEO-L073RZ.build.openocdscript=openocd_scripts/nucleo-l073rz.cfg
 NUCLEO-L073RZ.build.variant=NUCLEO-L073RZ
 NUCLEO-L073RZ.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l072xx -larm_cortexM0l_math
-NUCLEO-L073RZ.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include" 
+NUCLEO-L073RZ.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
 
 NUCLEO-L073RZ.menu.speed.32=32 MHz
 NUCLEO-L073RZ.menu.speed.32.build.f_cpu=32000000L
@@ -510,4 +578,3 @@ NUCLEO-L073RZ.menu.opt.o2.build.flags.ldspecs=
 NUCLEO-L073RZ.menu.opt.o3=Fastest
 NUCLEO-L073RZ.menu.opt.o3.build.flags.optimize=-O3
 NUCLEO-L073RZ.menu.opt.o3.build.flags.ldspecs=
-
