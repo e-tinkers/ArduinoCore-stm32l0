@@ -58,7 +58,7 @@ ArduinoCore-stm32l0 is targeted at ultra low power scenarios, sensor hubs, with 
 
 ###### USB Serial driver setup for STM32L0 LoRa boards (Window XP / Windows 7 only)
 
- 1. Go to ~/AppData/Local/Arduino15/packages/TleraCorp/hardware/stm32l0/```<VERSION>```/drivers/windows
+ 1. Go to ~/AppData/Local/Arduino15/packages/STM32L0-Lora-boards/hardware/stm32l0/```<VERSION>```/drivers/windows
  2. Right-click on ```dpinst_x86.exe``` (32 bit Windows) or ```dpinst_amd64.exe``` (64 bit Windows) and select ```Run as administrator```
  3. Click on ```Install this driver software anyway``` at the ```Windows Security``` popup as the driver is unsigned
 
