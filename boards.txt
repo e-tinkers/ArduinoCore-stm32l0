@@ -31,7 +31,7 @@ TechStudio-LoRa.build.usb_manufacturer="Tech Studio Design LLP"
 TechStudio-LoRa.build.usb_product="TechStudio Murata Lora Board"
 TechStudio-LoRa.build.extra_flags=-DSTM32L082xx -march=armv6-m -mthumb -mabi=aapcs -mfloat-abi=soft -fsingle-precision-constant {build.usb_flags} {build.dosfs_flags}
 TechStudio-LoRa.build.ldscript=linker_scripts/STM32L082CZ_FLASH.ld
-TechStudio-LoRa.build.openocdscript=openocd_scripts/TechStudio-LoRa.cfg
+TechStudio-LoRa.build.openocdscript=openocd_scripts/techstudio-lora.cfg
 TechStudio-LoRa.build.variant=TechStudio-LoRa
 TechStudio-LoRa.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l082xx -larm_cortexM0l_math
 TechStudio-LoRa.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
